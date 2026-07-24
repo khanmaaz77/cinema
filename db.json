@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Rahul Sharma",
+      "email": "rahul@example.com",
+      "password": "password123"
+    }
+  ],
+  "cinemas": [
+    {
+      "id": "c1",
+      "name": "PVR Icon - Phoenix Palladium",
+      "city": "Mumbai"
+    },
+    {
+      "id": "c2",
+      "name": "INOX - Megaplex, Inorbit Mall",
+      "city": "Mumbai"
+    },
+    {
+      "id": "c3",
+      "name": "PVR Directors Cut - Vasant Kunj",
+      "city": "Delhi NCR"
+    },
+    {
+      "id": "c4",
+      "name": "Cinepolis - Nexus Forum Mall",
+      "city": "Bengaluru"
+    }
+  ],
+  "movies": [
+    {
+      "id": "m1",
+      "title": "Kalki 2898 AD",
+      "genre": "Sci-Fi / Action",
+      "duration": "3h 01m",
+      "rating": "8.4",
+      "language": "Hindi / Telugu",
+      "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500",
+      "description": "A modern avatar of Vishnu descends to Earth to protect the world from evil forces in a dystopian futuristic post-apocalyptic setting.",
+      "ticketPrice": 280,
+      "shows": ["11:00 AM", "02:30 PM", "06:15 PM", "09:45 PM"]
+    },
+    {
+      "id": "m2",
+      "title": "Stree 2",
+      "genre": "Comedy / Horror",
+      "duration": "2h 27m",
+      "rating": "8.1",
+      "language": "Hindi",
+      "poster": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500",
+      "description": "The town of Chanderi is haunted once again, this time by a headless entity known as 'Sarkata'.",
+      "ticketPrice": 250,
+      "shows": ["12:00 PM", "03:30 PM", "07:00 PM", "10:15 PM"]
+    },
+    {
+      "id": "m3",
+      "title": "Jawan",
+      "genre": "Action / Thriller",
+      "duration": "2h 49m",
+      "rating": "8.2",
+      "language": "Hindi",
+      "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500",
+      "description": "A high-octane action thriller outlining the emotional journey of a man driven to rectify the wrongs in society.",
+      "ticketPrice": 300,
+      "shows": ["10:30 AM", "02:00 PM", "05:45 PM", "09:30 PM"]
+    }
+  ],
+  "foods": [
+    {
+      "id": "f1",
+      "name": "Cheese Popcorn (Large)",
+      "price": 290,
+      "rating": "4.8",
+      "category": "Snacks"
+    },
+    {
+      "id": "f2",
+      "name": "Salted Popcorn (Medium)",
+      "price": 220,
+      "rating": "4.5",
+      "category": "Snacks"
+    },
+    {
+      "id": "f3",
+      "name": "Pepsi / Cola (750ml)",
+      "price": 180,
+      "rating": "4.6",
+      "category": "Beverages"
+    },
+    {
+      "id": "f4",
+      "name": "Nachos with Cheese Dip",
+      "price": 240,
+      "rating": "4.7",
+      "category": "Snacks"
+    },
+    {
+      "id": "f5",
+      "name": "Chicken / Veg Burger Combo",
+      "price": 320,
+      "rating": "4.4",
+      "category": "Combos"
+    }
+  ],
+  "bookings": []
+}

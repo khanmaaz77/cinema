@@ -1,0 +1,257 @@
+/* ==========================================================================
+   1. RESET & BASE VARIABLES
+   ========================================================================== */
+:root {
+  --primary: #e50914; /* Cinema Red */
+  --primary-hover: #f40612;
+  --accent: #ffb400; /* Gold/Rating Star */
+  --bg-dark: #0a0b0d;
+  --card-bg: rgba(22, 24, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-muted: #9ba1a6;
+  --seat-available: #2c323f;
+  --seat-selected: #e50914;
+  --seat-reserved: #1a1d24;
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. HERO LIVE VIDEO BACKGROUND
+   ========================================================================== */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+/* Video element wrapper */
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.5) contrast(1.1);
+}
+
+/* Gradient overlay for smooth transition into content */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(10, 11, 13, 0.2) 0%, 
+    rgba(10, 11, 13, 0.6) 60%, 
+    var(--bg-dark) 100%
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 650px;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* CTA Button */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.6);
+}
+
+/* ==========================================================================
+   3. MOVIE CARDS & GRID
+   ========================================================================== */
+.movies-section {
+  padding: 4rem 5%;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.movie-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.poster-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.poster-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.movie-card:hover .poster-container img {
+  transform: scale(1.08);
+}
+
+.movie-info {
+  padding: 1.2rem;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.rating {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   4. INTERACTIVE SEAT SELECTION
+   ========================================================================== */
+.cinema-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+  perspective: 1000px;
+}
+
+/* Screen effect */
+.screen {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+  height: 70px;
+  width: 70%;
+  margin-bottom: 3rem;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 25px rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+
+.seat {
+  width: 32px;
+  height: 28px;
+  background-color: var(--seat-available);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.seat:not(.occupied):hover {
+  background-color: #434c5e;
+  transform: scale(1.15);
+}
+
+.seat.selected {
+  background-color: var(--seat-selected);
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+}
+
+.seat.occupied {
+  background-color: var(--seat-reserved);
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   5. KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
